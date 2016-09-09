@@ -1,0 +1,1 @@
+# spirit-spring-boot-autoconfigure
