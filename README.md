@@ -1,1 +1,1 @@
-# spirit-spring-boot-autoconfigure
+# spring-boot-starter

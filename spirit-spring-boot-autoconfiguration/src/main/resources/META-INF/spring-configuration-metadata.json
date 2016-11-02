@@ -1,0 +1,35 @@
+{
+  "groups": [
+    {
+      "name": "spirit.crypto",
+      "type": "com.googlecode.spirit.boot.autoconfiguration.SpiritCryptoProperties",
+      "sourceType": "com.googlecode.spirit.boot.autoconfiguration.SpiritCryptoProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "spirit.crypto.pem-file",
+      "type": "org.springframework.core.io.Resource",
+      "sourceType": "com.googlecode.spirit.boot.autoconfiguration.SpiritCryptoProperties"
+    },
+    {
+      "name": "spirit.crypto.use-password",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.googlecode.spirit.boot.autoconfiguration.SpiritCryptoProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "spirit.crypto.password-key",
+      "type": "java.lang.String",
+      "sourceType": "com.googlecode.spirit.boot.autoconfiguration.SpiritCryptoProperties",
+      "defaultValue": "RSAPassword"
+    },
+    {
+      "name": "spirit.crypto.charset",
+      "type": "java.lang.String",
+      "sourceType": "com.googlecode.spirit.boot.autoconfiguration.SpiritCryptoProperties",
+      "defaultValue": "UTF-8"
+    }
+  ],
+  "hints": []
+}
