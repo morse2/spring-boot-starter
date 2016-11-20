@@ -1,0 +1,5 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.googlecode.spirit.boot.autoconfiguration.cryptography.SpiritCryptoAutoConfiguration,\
+com.googlecode.spirit.boot.autoconfiguration.dao.SpiritDaoAutoConfiguration,\
+com.googlecode.spirit.boot.autoconfiguration.mybatis.SpiritMybatisAutoConfiguration

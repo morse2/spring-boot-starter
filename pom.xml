@@ -6,8 +6,10 @@
     <artifactId>spring-boot-starter</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <modules>
-        <module>spirit-spring-boot-autoconfiguration</module>
-        <module>spirit-spring-boot-starter</module>
+        <module>spirit-spring-boot-autoconfigure</module>
+        <module>spirit-crypto-spring-boot-starter</module>
+        <module>spirit-mybatis-spring-boot-starter</module>
+        <module>spirit-dao-spring-boot-starter</module>
     </modules>
     <packaging>pom</packaging>
     <name>spring-boot-starter</name>
@@ -40,14 +42,14 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sonatype Nexus Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <id>dm_3</id>
+            <name>Maven Snapshot Repository of Tuogo</name>
+            <url>http://www.shoppingmango.com/nexus3/repository/maven-snapshots/</url>
         </snapshotRepository>
         <repository>
-            <id>sonatype-nexus-staging</id>
-            <name>Nexus Release Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>dm_3</id>
+            <name>Maven Release Repository of Tuogo</name>
+            <url>http://www.shoppingmango.com/nexus3/repository/maven-releases/</url>
         </repository>
     </distributionManagement>
 
@@ -66,32 +68,20 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>LATEST</version>
+            <version>1.4.1.RELEASE</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
-            <version>LATEST</version>
+            <version>1.4.1.RELEASE</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <version>LATEST</version>
+            <version>1.4.1.RELEASE</version>
             <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-autoconfigure</artifactId>
-            <version>1.1.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.googlecode.easyec</groupId>
-            <artifactId>spirit-mybatis</artifactId>
-            <version>0.7.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
@@ -194,7 +184,7 @@
 
     <profiles>
         <profile>
-            <id>sonatype-oss-release</id>
+            <id>dm_3</id>
             <build>
                 <plugins>
                     <plugin>
@@ -227,7 +217,7 @@
                             </execution>
                         </executions>
                     </plugin>
-                    <plugin>
+                    <!--<plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
                         <version>1.6</version>
@@ -240,7 +230,7 @@
                                 </goals>
                             </execution>
                         </executions>
-                    </plugin>
+                    </plugin>-->
                 </plugins>
             </build>
         </profile>
