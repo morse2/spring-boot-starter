@@ -82,6 +82,18 @@
       "defaultValue": true
     },
     {
+      "name": "spirit.dao.paging-intercept-order",
+      "type": "int",
+      "sourceType": "com.googlecode.spirit.boot.autoconfiguration.dao.SpiritDaoProperties",
+      "defaultValue": 3
+    },
+    {
+      "name": "spirit.dao.use-paging-interceptor",
+      "type": "boolean",
+      "sourceType": "com.googlecode.spirit.boot.autoconfiguration.dao.SpiritDaoProperties",
+      "defaultValue": false
+    },
+    {
       "name": "spirit.mybatis.sql-session-template-decision-order",
       "type": "int",
       "sourceType": "com.googlecode.spirit.boot.autoconfiguration.mybatis.SpiritMybatisProperties",
@@ -98,17 +110,39 @@
       "type": "boolean",
       "sourceType": "com.googlecode.spirit.boot.autoconfiguration.mybatis.SpiritMybatisProperties",
       "defaultValue": false
+    },
+    {
+      "name": "spirit.mybatis.paging-intercept-order",
+      "type": "int",
+      "sourceType": "com.googlecode.spirit.boot.autoconfiguration.mybatis.SpiritMybatisProperties",
+      "defaultValue": 4
+    },
+    {
+      "name": "spirit.mybatis.use-paging-interceptor",
+      "type": "boolean",
+      "sourceType": "com.googlecode.spirit.boot.autoconfiguration.mybatis.SpiritMybatisProperties",
+      "defaultValue": false
     }
   ],
   "hints": [
     {
       "name": "spirit.dao.page-delegate",
       "values": [
-        {"value": "MySql"},
-        {"value": "Oracle"},
-        {"value": "PostgreSql"}
+        {
+          "value": "MySql"
+        },
+        {
+          "value": "Oracle"
+        },
+        {
+          "value": "PostgreSql"
+        }
       ],
-      "providers": [{"name": "any"}]
+      "providers": [
+        {
+          "name": "any"
+        }
+      ]
     }
   ]
 }

@@ -10,6 +10,7 @@ public class SpiritDaoProperties {
 
     private int pageSize = 10;
     private int maxLoValue = 10;
+    private int pagingInterceptOrder = 3;
     private int idGenerateInterceptorOrder = 5;
 
     private boolean usePageDelegate = false;
@@ -32,6 +33,14 @@ public class SpiritDaoProperties {
 
     public void setMaxLoValue(int maxLoValue) {
         this.maxLoValue = maxLoValue;
+    }
+
+    public int getPagingInterceptOrder() {
+        return pagingInterceptOrder;
+    }
+
+    public void setPagingInterceptOrder(int pagingInterceptOrder) {
+        this.pagingInterceptOrder = pagingInterceptOrder;
     }
 
     public int getIdGenerateInterceptorOrder() {

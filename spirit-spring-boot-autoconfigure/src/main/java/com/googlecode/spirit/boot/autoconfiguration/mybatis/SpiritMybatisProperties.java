@@ -10,6 +10,8 @@ public class SpiritMybatisProperties {
 
     private int sqlSessionTemplateDecisionOrder = 2;
     private int sqlSessionTemplateExecutorOrder = 10;
+    private int pagingInterceptOrder = 4;
+    private boolean usePagingInterceptor = true;
     private boolean usePageDelegate;
 
     public int getSqlSessionTemplateDecisionOrder() {
@@ -26,6 +28,22 @@ public class SpiritMybatisProperties {
 
     public void setSqlSessionTemplateExecutorOrder(int sqlSessionTemplateExecutorOrder) {
         this.sqlSessionTemplateExecutorOrder = sqlSessionTemplateExecutorOrder;
+    }
+
+    public int getPagingInterceptOrder() {
+        return pagingInterceptOrder;
+    }
+
+    public void setPagingInterceptOrder(int pagingInterceptOrder) {
+        this.pagingInterceptOrder = pagingInterceptOrder;
+    }
+
+    public boolean isUsePagingInterceptor() {
+        return usePagingInterceptor;
+    }
+
+    public void setUsePagingInterceptor(boolean usePagingInterceptor) {
+        this.usePagingInterceptor = usePagingInterceptor;
     }
 
     public boolean isUsePageDelegate() {

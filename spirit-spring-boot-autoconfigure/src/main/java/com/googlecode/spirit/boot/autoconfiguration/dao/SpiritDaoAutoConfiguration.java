@@ -9,8 +9,10 @@ import com.googlecode.easyec.spirit.dao.id.support.PlatformSequenceGenerateDecis
 import com.googlecode.easyec.spirit.dao.paging.JdbcPage;
 import com.googlecode.easyec.spirit.dao.paging.JdbcPageWritable;
 import com.googlecode.easyec.spirit.dao.paging.PageProxy;
+import com.googlecode.easyec.spirit.dao.paging.PagingInterceptor;
 import com.googlecode.easyec.spirit.dao.paging.factory.PageDelegate;
 import com.googlecode.easyec.spirit.dao.paging.support.JdbcPageProxy;
+import com.googlecode.easyec.spirit.dao.paging.support.JdbcPagingInterceptor;
 import com.googlecode.easyec.spirit.web.controller.formbean.impl.AbstractSearchFormBean;
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.config.AbstractFactoryBean;
@@ -99,6 +101,17 @@ public class SpiritDaoAutoConfiguration {
         interceptor.setOrder(spiritDaoProperties.getIdGenerateInterceptorOrder());
         interceptor.setTransactionManager(transactionManager);
         interceptor.setSequenceGenerator(sequenceGenerator);
+
+        return interceptor;
+    }
+
+    @Bean
+    @ConditionalOnMissingBean(PagingInterceptor.class)
+    @ConditionalOnProperty(prefix = "spirit.dao", name = "use-paging-interceptor", havingValue = "true")
+    public JdbcPagingInterceptor pagingInterceptor(DataSource dataSource) {
+        JdbcPagingInterceptor interceptor = new JdbcPagingInterceptor();
+        interceptor.setOrder(spiritDaoProperties.getPagingInterceptOrder());
+        interceptor.setDataSource(dataSource);
 
         return interceptor;
     }

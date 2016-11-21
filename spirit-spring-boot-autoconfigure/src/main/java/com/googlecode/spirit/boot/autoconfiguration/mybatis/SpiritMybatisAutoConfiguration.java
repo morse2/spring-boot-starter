@@ -2,12 +2,14 @@ package com.googlecode.spirit.boot.autoconfiguration.mybatis;
 
 import com.googlecode.easyec.spirit.dao.dialect.PageDialect;
 import com.googlecode.easyec.spirit.dao.paging.PageProxy;
+import com.googlecode.easyec.spirit.dao.paging.PagingInterceptor;
 import com.googlecode.easyec.spirit.dao.paging.factory.PageDelegate;
 import com.googlecode.easyec.spirit.mybatis.executor.support.SqlSessionTemplateDecisionInterceptor;
 import com.googlecode.easyec.spirit.mybatis.executor.support.SqlSessionTemplateExecutor;
 import com.googlecode.easyec.spirit.mybatis.paging.MybatisPage;
 import com.googlecode.easyec.spirit.mybatis.paging.MybatisPageWritable;
 import com.googlecode.easyec.spirit.mybatis.paging.support.MybatisPageProxy;
+import com.googlecode.easyec.spirit.mybatis.paging.support.MybatisPagingInterceptor;
 import com.googlecode.easyec.spirit.mybatis.service.impl.DelegateServiceBeanPostProcessor;
 import com.googlecode.easyec.spirit.web.controller.formbean.impl.AbstractSearchFormBean;
 import com.googlecode.spirit.boot.autoconfiguration.dao.SpiritDaoProperties;
@@ -67,6 +69,17 @@ public class SpiritMybatisAutoConfiguration {
     @ConditionalOnMissingBean(DelegateServiceBeanPostProcessor.class)
     public DelegateServiceBeanPostProcessor delegateServiceBeanPostProcessor() {
         return new DelegateServiceBeanPostProcessor();
+    }
+
+    @Bean
+    @ConditionalOnMissingBean(PagingInterceptor.class)
+    @ConditionalOnProperty(prefix = "spirit.mybatis", name = "use-paging-interceptor", havingValue = "true")
+    public MybatisPagingInterceptor pagingInterceptor(SqlSessionFactory sqlSessionFactory) {
+        MybatisPagingInterceptor interceptor = new MybatisPagingInterceptor();
+        interceptor.setOrder(spiritMybatisProperties.getPagingInterceptOrder());
+        interceptor.setSqlSessionFactory(sqlSessionFactory);
+
+        return interceptor;
     }
 
     private class InternalMybatisPageDelegate extends PageDelegate<MybatisPage> {
