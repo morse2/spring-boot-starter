@@ -40,6 +40,19 @@
         </developer>
     </developers>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>dm_3</id>
+            <name>Maven Snapshot Repository of Tuogo</name>
+            <url>http://dev.tuogo.com.cn/nexus3/repository/maven-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>dm_3</id>
+            <name>Maven Release Repository of Tuogo</name>
+            <url>http://dev.tuogo.com.cn/nexus3/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -103,7 +116,8 @@
                             <rules>
                                 <requireMavenVersion>
                                     <version>(,2.1.0),(2.1.0,2.2.0),(2.2.0,)</version>
-                                    <message>Maven 2.1.0 and 2.2.0 produce incorrect GPG signatures and checksums respectively.
+                                    <message>Maven 2.1.0 and 2.2.0 produce incorrect GPG signatures and checksums
+                                        respectively.
                                     </message>
                                 </requireMavenVersion>
                             </rules>
