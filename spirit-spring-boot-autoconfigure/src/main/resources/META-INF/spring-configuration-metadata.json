@@ -18,6 +18,18 @@
   ],
   "properties": [
     {
+      "name": "spirit.crypto.rsa-client",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.googlecode.spirit.boot.autoconfiguration.cryptography.SpiritCryptoProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "spirit.crypto.rsa-server",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.googlecode.spirit.boot.autoconfiguration.cryptography.SpiritCryptoProperties",
+      "defaultValue": false
+    },
+    {
       "name": "spirit.crypto.pem-file",
       "type": "org.springframework.core.io.Resource",
       "sourceType": "com.googlecode.spirit.boot.autoconfiguration.cryptography.SpiritCryptoProperties"

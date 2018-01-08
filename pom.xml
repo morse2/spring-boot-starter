@@ -4,7 +4,7 @@
 
     <groupId>com.googlecode.spirit.boot</groupId>
     <artifactId>spring-boot-starter</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.2.0-SNAPSHOT</version>
     <modules>
         <module>spirit-spring-boot-autoconfigure</module>
         <module>spirit-crypto-spring-boot-starter</module>
@@ -40,25 +40,12 @@
         </developer>
     </developers>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>dm_3</id>
-            <name>Maven Snapshot Repository of Tuogo</name>
-            <url>http://www.shoppingmango.com/nexus3/repository/maven-snapshots/</url>
-        </snapshotRepository>
-        <repository>
-            <id>dm_3</id>
-            <name>Maven Release Repository of Tuogo</name>
-            <url>http://www.shoppingmango.com/nexus3/repository/maven-releases/</url>
-        </repository>
-    </distributionManagement>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>1.4.1.RELEASE</version>
+                <version>1.5.9.RELEASE</version>
                 <scope>import</scope>
             </dependency>
         </dependencies>
@@ -68,19 +55,19 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>1.4.1.RELEASE</version>
+            <version>1.5.9.RELEASE</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
-            <version>1.4.1.RELEASE</version>
+            <version>1.5.9.RELEASE</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <version>1.4.1.RELEASE</version>
+            <version>1.5.9.RELEASE</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -105,7 +92,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <version>1.0</version>
+                <version>1.4.1</version>
                 <executions>
                     <execution>
                         <id>enforce-maven</id>
@@ -131,10 +118,10 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.5.1</version>
+                    <version>3.6.0</version>
                     <configuration>
-                        <source>1.6</source>
-                        <target>1.6</target>
+                        <source>1.8</source>
+                        <target>1.8</target>
                         <encoding>${project.build.sourceEncoding}</encoding>
                     </configuration>
                 </plugin>
@@ -142,13 +129,13 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.10.3</version>
+                    <version>2.10.4</version>
                 </plugin>
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>3.0.1</version>
                     <configuration>
                         <attach>true</attach>
                     </configuration>
@@ -191,7 +178,7 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>
                     </plugin>
-                    <plugin>
+                    <!--<plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
                         <version>3.0.0</version>
@@ -203,11 +190,11 @@
                                 </goals>
                             </execution>
                         </executions>
-                    </plugin>
+                    </plugin>-->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.10.3</version>
+                        <version>2.10.4</version>
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>

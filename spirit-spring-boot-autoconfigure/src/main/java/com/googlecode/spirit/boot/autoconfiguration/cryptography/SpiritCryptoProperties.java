@@ -9,10 +9,28 @@ import org.springframework.core.io.Resource;
 @ConfigurationProperties(prefix = "spirit.crypto")
 public class SpiritCryptoProperties {
 
+    private boolean rsaClient;
+    private boolean rsaServer;
     private Resource pemFile;
     private boolean usePassword;
     private String passwordKey;
     private String charset;
+
+    public boolean isRsaClient() {
+        return rsaClient;
+    }
+
+    public void setRsaClient(boolean rsaClient) {
+        this.rsaClient = rsaClient;
+    }
+
+    public boolean isRsaServer() {
+        return rsaServer;
+    }
+
+    public void setRsaServer(boolean rsaServer) {
+        this.rsaServer = rsaServer;
+    }
 
     public Resource getPemFile() {
         return pemFile;
