@@ -134,6 +134,52 @@
       "type": "boolean",
       "sourceType": "com.googlecode.spirit.boot.autoconfiguration.mybatis.SpiritMybatisProperties",
       "defaultValue": false
+    },
+    {
+      "name": "spirit.web.use-http-request",
+      "type": "boolean",
+      "sourceType": "com.googlecode.spirit.boot.autoconfiguration.web.SpiritWebProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "spirit.web.default-max-per-route",
+      "type": "int",
+      "sourceType": "com.googlecode.spirit.boot.autoconfiguration.web.SpiritWebProperties",
+      "defaultValue": 10
+    },
+    {
+      "name": "spirit.web.max-total",
+      "type": "int",
+      "sourceType": "com.googlecode.spirit.boot.autoconfiguration.web.SpiritWebProperties",
+      "defaultValue": 20
+    },
+    {
+      "name": "spirit.web.use-string-stream",
+      "type": "boolean",
+      "sourceType": "com.googlecode.spirit.boot.autoconfiguration.web.SpiritWebProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "spirit.web.use-json-stream",
+      "type": "boolean",
+      "sourceType": "com.googlecode.spirit.boot.autoconfiguration.web.SpiritWebProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "spirit.web.json-date-format",
+      "type": "java.lang.String",
+      "sourceType": "com.googlecode.spirit.boot.autoconfiguration.web.SpiritWebProperties"
+    },
+    {
+      "name": "spirit.web.use-jaxb-stream",
+      "type": "boolean",
+      "sourceType": "com.googlecode.spirit.boot.autoconfiguration.web.SpiritWebProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "spirit.web.jaxb-package-to-scan",
+      "type": "java.lang.String",
+      "sourceType": "com.googlecode.spirit.boot.autoconfiguration.web.SpiritWebProperties"
     }
   ],
   "hints": [
