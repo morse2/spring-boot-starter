@@ -38,11 +38,10 @@ public class SpiritWebAutoConfiguration {
 
     @Bean(destroyMethod = "shutdown")
     @ConditionalOnMissingBean(HttpClientConnectionManager.class)
-    @ConfigurationProperties(prefix = "spirit.web.http")
+    @ConfigurationProperties(prefix = "spirit.web")
     public HttpClientConnectionManager httpClientConnectionManager() {
         return new PoolingHttpClientConnectionManager();
     }
-
 
     @Bean
     @ConditionalOnMissingBean(HttpClientBuilder.class)
@@ -58,6 +57,7 @@ public class SpiritWebAutoConfiguration {
     }
 
     @Bean
+    @ConditionalOnMissingBean(HttpRequest.class)
     @ConditionalOnProperty(prefix = "spirit.web", name = "use-http-request", havingValue = "true")
     public HttpRequest httpRequest(HttpClient httpClient) {
         try {
@@ -99,6 +99,7 @@ public class SpiritWebAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean(Jaxb2Marshaller.class)
+    @ConditionalOnProperty(prefix = "spirit.web", name = "use-jaxb-stream", havingValue = "true")
     public Jaxb2Marshaller jaxb2Marshaller() {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
         marshaller.setPackagesToScan(spiritWebProperties.getJaxbPackageToScan());
@@ -108,6 +109,7 @@ public class SpiritWebAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean(ObjectMapper.class)
+    @ConditionalOnProperty(prefix = "spirit.web", name = "use-json-stream", havingValue = "true")
     public ObjectMapper objectMapper() {
         ObjectMapper objectMapper = new ObjectMapper();
 

@@ -12,8 +12,8 @@ public class SpiritWebProperties {
     private boolean useStringStream;
     private boolean useJsonStream;
     private boolean useJaxbStream;
-    private int defaultMaxPerRoute;
-    private int maxTotal;
+    private int defaultMaxPerRoute = 5;
+    private int maxTotal = 20;
     private String jsonDateFormat;
     private String jaxbPackageToScan;
 

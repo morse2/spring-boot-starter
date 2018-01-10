@@ -145,7 +145,7 @@
       "name": "spirit.web.default-max-per-route",
       "type": "int",
       "sourceType": "com.googlecode.spirit.boot.autoconfiguration.web.SpiritWebProperties",
-      "defaultValue": 10
+      "defaultValue": 5
     },
     {
       "name": "spirit.web.max-total",
