@@ -4,7 +4,7 @@
 
     <groupId>com.googlecode.spirit.boot</groupId>
     <artifactId>spring-boot-starter</artifactId>
-    <version>0.2.0-SNAPSHOT</version>
+    <version>0.2.1-SNAPSHOT</version>
     <modules>
         <module>spirit-spring-boot-autoconfigure</module>
         <module>spirit-crypto-spring-boot-starter</module>
@@ -59,11 +59,26 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>1.5.9.RELEASE</version>
+                <version>2.0.0.RELEASE</version>
                 <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>2.0.0.RELEASE</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>2.0.0.RELEASE</version>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
