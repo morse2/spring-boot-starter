@@ -5,6 +5,7 @@ import com.googlecode.easyec.spirit.dao.id.IdentifierGenerator;
 import com.googlecode.easyec.spirit.dao.id.IdentifierNameConverter;
 import com.googlecode.easyec.spirit.dao.id.SequenceGenerator;
 import com.googlecode.easyec.spirit.dao.id.impl.*;
+import com.googlecode.easyec.spirit.dao.id.support.AbstractSequenceGenerateDecisionInterceptor;
 import com.googlecode.easyec.spirit.dao.id.support.PlatformSequenceGenerateDecisionInterceptor;
 import com.googlecode.easyec.spirit.dao.paging.JdbcPage;
 import com.googlecode.easyec.spirit.dao.paging.JdbcPageWritable;
@@ -94,7 +95,8 @@ public class SpiritDaoAutoConfiguration {
     }
 
     @Bean
-    @ConditionalOnBean({ PlatformTransactionManager.class, SequenceGenerator.class })
+    @ConditionalOnMissingBean(AbstractSequenceGenerateDecisionInterceptor.class)
+    @ConditionalOnProperty(prefix = "spirit.dao", name = "use-sequence-generator", havingValue = "true", matchIfMissing = true)
     public PlatformSequenceGenerateDecisionInterceptor sequenceGenerateDecisionInterceptor(
         PlatformTransactionManager transactionManager, SequenceGenerator sequenceGenerator) {
         PlatformSequenceGenerateDecisionInterceptor interceptor = new PlatformSequenceGenerateDecisionInterceptor();
