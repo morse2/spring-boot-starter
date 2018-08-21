@@ -4,7 +4,7 @@
 
     <groupId>com.googlecode.spirit.boot</groupId>
     <artifactId>spring-boot-starter</artifactId>
-    <version>0.2.1-SNAPSHOT</version>
+    <version>0.2.2-SNAPSHOT</version>
     <modules>
         <module>spirit-spring-boot-autoconfigure</module>
         <module>spirit-crypto-spring-boot-starter</module>
@@ -59,7 +59,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.0.0.RELEASE</version>
+                <version>2.0.2.RELEASE</version>
                 <scope>import</scope>
             </dependency>
         </dependencies>
@@ -69,13 +69,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>2.0.0.RELEASE</version>
+            <version>2.0.2.RELEASE</version>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
-            <version>2.0.0.RELEASE</version>
+            <version>2.0.2.RELEASE</version>
             <optional>true</optional>
         </dependency>
     </dependencies>
@@ -127,7 +127,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.6.0</version>
+                    <version>3.7.0</version>
                     <configuration>
                         <source>1.8</source>
                         <target>1.8</target>
