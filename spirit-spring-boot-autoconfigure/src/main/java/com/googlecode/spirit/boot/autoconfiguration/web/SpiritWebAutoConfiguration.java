@@ -17,7 +17,6 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -38,13 +37,14 @@ public class SpiritWebAutoConfiguration {
 
     @Bean(destroyMethod = "shutdown")
     @ConditionalOnMissingBean(HttpClientConnectionManager.class)
-    @ConfigurationProperties(prefix = "spirit.web")
+    @ConditionalOnProperty(prefix = "spirit.web", name = "use-http-request", havingValue = "true")
     public HttpClientConnectionManager httpClientConnectionManager() {
         return new PoolingHttpClientConnectionManager();
     }
 
     @Bean
     @ConditionalOnMissingBean(HttpClientBuilder.class)
+    @ConditionalOnProperty(prefix = "spirit.web", name = "use-http-request", havingValue = "true")
     public HttpClientBuilder httpClientBuilder(HttpClientConnectionManager httpClientConnectionManager) {
         return HttpClients.custom().setConnectionManager(httpClientConnectionManager);
     }
@@ -52,6 +52,7 @@ public class SpiritWebAutoConfiguration {
     @Scope("prototype")
     @Bean(destroyMethod = "close")
     @ConditionalOnMissingBean(HttpClient.class)
+    @ConditionalOnProperty(prefix = "spirit.web", name = "use-http-request", havingValue = "true")
     public CloseableHttpClient httpClient(HttpClientBuilder httpClientBuilder) {
         return httpClientBuilder.build();
     }
@@ -76,21 +77,21 @@ public class SpiritWebAutoConfiguration {
     }
 
     // ----- stream object factory here
-    @Bean
+    @Bean("stringObjectFactory")
     @ConditionalOnMissingBean(StringObjectFactory.class)
     @ConditionalOnProperty(prefix = "spirit.web", name = "use-string-stream", havingValue = "true")
     public StreamObjectFactory stringObjectFactory() {
         return new StringObjectFactory();
     }
 
-    @Bean
+    @Bean("jsonObjectFactory")
     @ConditionalOnMissingBean(DefaultJackson2ObjectFactory.class)
     @ConditionalOnProperty(prefix = "spirit.web", name = "use-json-stream", havingValue = "true")
     public StreamObjectFactory jsonObjectFactory(ObjectMapper objectMapper) {
         return new DefaultJackson2ObjectFactory(objectMapper);
     }
 
-    @Bean
+    @Bean("jaxbObjectFactory")
     @ConditionalOnMissingBean(Jaxb2MarshallerObjectFactory.class)
     @ConditionalOnProperty(prefix = "spirit.web", name = "use-jaxb-stream", havingValue = "true")
     public StreamObjectFactory jaxbObjectFactory(Jaxb2Marshaller jaxb2Marshaller) {
