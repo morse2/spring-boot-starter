@@ -3,7 +3,7 @@
 
     <groupId>com.googlecode.spirit.boot</groupId>
     <artifactId>spring-boot-starter</artifactId>
-    <version>0.2.2.1</version>
+    <version>0.2.2.2-SNAPSHOT</version>
     <modules>
         <module>spirit-spring-boot-autoconfigure</module>
         <module>spirit-crypto-spring-boot-starter</module>
@@ -30,7 +30,7 @@
         <developerConnection>scm:git:https://github.com/superego/spring-boot-starter.git</developerConnection>
         <connection>scm:git:https://github.com/superego/spring-boot-starter.git</connection>
         <url>https://github.com/superego/spring-boot-starter.git</url>
-      <tag>spring-boot-starter-0.2.2.1</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <developers>

@@ -2,7 +2,7 @@
     <parent>
         <artifactId>spring-boot-starter</artifactId>
         <groupId>com.googlecode.spirit.boot</groupId>
-        <version>0.2.2.1</version>
+        <version>0.2.2.2-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>spirit-dao-spring-boot-starter</artifactId>
@@ -17,7 +17,7 @@
         <dependency>
             <groupId>com.googlecode.spirit.boot</groupId>
             <artifactId>spirit-spring-boot-autoconfigure</artifactId>
-            <version>0.2.2.1</version>
+            <version>0.2.2.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.googlecode.easyec</groupId>
