@@ -4,7 +4,7 @@
 
     <groupId>com.googlecode.spirit.boot</groupId>
     <artifactId>spring-boot-starter</artifactId>
-    <version>0.2.3-SNAPSHOT</version>
+    <version>0.2.2.1-SNAPSHOT</version>
     <modules>
         <module>spirit-spring-boot-autoconfigure</module>
         <module>spirit-crypto-spring-boot-starter</module>
@@ -30,7 +30,7 @@
     <scm>
         <developerConnection>scm:git:https://github.com/superego/spring-boot-starter.git</developerConnection>
         <connection>scm:git:https://github.com/superego/spring-boot-starter.git</connection>
-        <url>scm:git:https://github.com/superego/spring-boot-starter.git</url>
+        <url>https://github.com/superego/spring-boot-starter.git</url>
     </scm>
 
     <developers>
@@ -43,14 +43,14 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>cloud_5</id>
-            <name>Maven Snapshot Repository of Cloud 5</name>
-            <url>https://repo.clouds.566.sh:18181/repository/maven-snapshots/</url>
+            <id>dm_3</id>
+            <name>Maven Snapshot Repository of Tuogo</name>
+            <url>http://mvnrepository.tuogo.com.cn/repository/maven-snapshots/</url>
         </snapshotRepository>
         <repository>
-            <id>cloud_5</id>
-            <name>Maven Release Repository of Cloud 5</name>
-            <url>https://repo.clouds.566.sh:18181/repository/maven-releases/</url>
+            <id>dm_3</id>
+            <name>Maven Release Repository of Tuogo</name>
+            <url>http://mvnrepository.tuogo.com.cn/repository/maven-releases/</url>
         </repository>
     </distributionManagement>
 
@@ -59,7 +59,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.0.9.RELEASE</version>
+                <version>2.0.2.RELEASE</version>
                 <scope>import</scope>
             </dependency>
         </dependencies>
@@ -69,13 +69,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>2.0.9.RELEASE</version>
+            <version>2.0.2.RELEASE</version>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
-            <version>2.0.9.RELEASE</version>
+            <version>2.0.2.RELEASE</version>
             <optional>true</optional>
         </dependency>
     </dependencies>
@@ -86,39 +86,13 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <version>1.4.1</version>
-                <executions>
-                    <execution>
-                        <id>enforce-maven</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <requireMavenVersion>
-                                    <version>(,2.1.0),(2.1.0,2.2.0),(2.2.0,)</version>
-                                    <message>Maven 2.1.0 and 2.2.0 produce incorrect GPG signatures and checksums
-                                        respectively.
-                                    </message>
-                                </requireMavenVersion>
-                            </rules>
-                        </configuration>
-                    </execution>
-                </executions>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <arguments>-DskipTests -Dmaven.javadoc.skip=true -Dmaven.source.skip=true</arguments>
+                </configuration>
             </plugin>
         </plugins>
 
@@ -127,47 +101,15 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.7.0</version>
+                    <version>3.8.0</version>
                     <configuration>
                         <source>1.8</source>
                         <target>1.8</target>
                         <encoding>${project.build.sourceEncoding}</encoding>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.10.4</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>3.0.1</version>
-                    <configuration>
-                        <attach>true</attach>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>jar</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-release-plugin</artifactId>
-                    <version>2.5.3</version>
-                    <configuration>
-                        <mavenExecutorId>forked-path</mavenExecutorId>
-                        <useReleaseProfile>true</useReleaseProfile>
-                        <arguments>-Psonatype-oss-release</arguments>
-                        <stagingRepository>
-                            https://oss.sonatype.org/service/local/staging/deploy/maven2/
-                        </stagingRepository>
+                        <compilerArgs>
+                            <arg>-parameters</arg>
+                        </compilerArgs>
+                        <compilerVersion>1.8</compilerVersion>
                     </configuration>
                 </plugin>
             </plugins>
@@ -177,58 +119,4 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <profiles>
-        <profile>
-            <id>dm_3</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                    </plugin>
-                    <!--<plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>3.0.0</version>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>-->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.10.4</version>
-                        <executions>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <!--<plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>-->
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
